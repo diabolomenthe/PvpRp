@@ -1,0 +1,9 @@
+name: PvpRp
+main: fr.yahoo.diabolomenthe75005.PvpRp.PvpRp
+version: 0.1
+database: true
+
+commands:
+  pnj:
+    description: Gestion des pnj.
+    usage: /pnj <command> etc
