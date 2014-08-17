@@ -8,7 +8,7 @@ import fr.yahoo.diabolomenthe75005.PvpRp.Command.CommandPnj;
 
 
 
-public class PvpRp extends JavaPlugin{
+public class PvPRp extends JavaPlugin{
 	//Fonction lors du lancement du serveur
 		@Override
 		public void onEnable(){
