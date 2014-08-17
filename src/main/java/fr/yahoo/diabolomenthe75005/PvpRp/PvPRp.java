@@ -8,7 +8,7 @@ public class PvPRp extends JavaPlugin{
 	//Fonction lors du lancement du serveur
 		@Override
 		public void onEnable(){
-			
+			//test merge
 
 		}
 
