@@ -19,7 +19,7 @@ public class CommandPnj implements CommandExecutor{
 			return false;
 		}
 		Player player = (Player) sender;
-		
+
 		player.sendMessage("Commande PNJ");
 		return true;
 	}
@@ -27,9 +27,8 @@ public class CommandPnj implements CommandExecutor{
 	private boolean checkSyntax(CommandSender sender,String args[]){
 		if(sender instanceof Player){
 			Player player = (Player) sender;
-
 			//vérifie existence de l'argument 0
-			if(args[0].length() != 0){
+			if(args.length > 0){
 				boolean test = false;
 				//Liste des commandes possibles
 				switch (args[0]) {
@@ -44,33 +43,30 @@ public class CommandPnj implements CommandExecutor{
 				}
 				if(!test){
 					player.sendMessage("Erreur de syntaxe");
-					return false;
+					return true;
 				}
 			} else {
 				player.sendMessage("Erreur de syntaxe");
-				return false;
+				return true;
 			}
-		} else {
+
+		}else {
+
 			sender.sendMessage("Cette commande doit être lancée par un joueur");
-			return false;
+			return true;
 		}
+
 		return true;
 	}
 
 	private boolean checkRemove(Player player, String[] args) {
-		if(args[1].length() == 0){
-			player.sendMessage("Erreur de syntaxe");
+		if(args.length != 2){
 			return false;
 		}
-		return false;
+		return true;
 	}
 	private boolean checkCreate(Player player, String[] args) {
-		if(args[1].length() == 0){
-			player.sendMessage("Erreur de syntaxe");
-			return false;
-		}
-		if(args[2].length() == 0){
-			player.sendMessage("Erreur de syntaxe");
+		if(args.length != 3){
 			return false;
 		}
 		return true;
