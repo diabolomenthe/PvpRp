@@ -6,20 +6,32 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import de.kumpelblase2.remoteentities.EntityManager;
+import de.kumpelblase2.remoteentities.api.RemoteEntityType;
+
 public class CommandPnj implements CommandExecutor{
 	protected Plugin plugin = null;
+	protected EntityManager pnjmanager = null;
 
-	public CommandPnj(Plugin plugin){
+	public CommandPnj(Plugin plugin,EntityManager pnjmanager){
 		this.plugin = plugin;
+		this.pnjmanager = pnjmanager;
 	}
-	@Override
+	
 	public boolean onCommand(CommandSender sender, Command command,
 			String label, String[] args) {
 		if(checkSyntax(sender,args)){
 			return false;
 		}
 		Player player = (Player) sender;
-
+		
+		switch(args[0]){
+		case "create":
+			pnjmanager.createNamedEntity(RemoteEntityType.valueOf(args[1].toUpperCase()), player.getLocation(),args[2]);
+			break;
+		case "remove":
+			pnjmanager.removeEntity(Integer.parseInt(args[1])) ;
+		}
 		player.sendMessage("Commande PNJ");
 		return true;
 	}
@@ -56,7 +68,7 @@ public class CommandPnj implements CommandExecutor{
 			return true;
 		}
 
-		return true;
+		return false;
 	}
 
 	private boolean checkRemove(Player player, String[] args) {

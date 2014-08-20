@@ -2,6 +2,7 @@ name: PvpRp
 main: fr.yahoo.diabolomenthe75005.PvpRp.PvpRp
 version: 0.1
 database: true
+depend: [RemoteEntities]
 
 commands:
   pnj:
